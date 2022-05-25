@@ -1,4 +1,4 @@
-<img src="app/src/main/ic_launcher-playstore.png" alt="icon" width="100"/>
+<img src="app/src/main/ic_launcher-playstore.webp" alt="icon" width="100"/>
 
 # Blog Application
 
