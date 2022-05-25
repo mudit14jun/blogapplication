@@ -32,31 +32,4 @@ class HomeViewModel @Inject constructor(
     ) {
         blogDAO.getAllBlogItems()
     }.flow.cachedIn(viewModelScope)
-
-
-//    private val _blogs = mutableStateOf<HomeState>(HomeState())
-//    val blogs: State<HomeState> = _blogs
-
-//
-//    init {
-//        getBlogs()
-//    }
-
-//    fun getBlogs() {
-//        getBlogsUseCase().onEach {
-//            when (it) {
-//                is Resource.Loading -> {
-//                    _blogs.value = HomeState(isLoading = true)
-//                }
-//                is Resource.Success -> {
-//                    _blogs.value = HomeState(data = it.data)
-//                }
-//                is Resource.Error -> {
-//                    _blogs.value = HomeState(error = it.message.toString())
-//                }
-//            }
-//        }.launchIn(viewModelScope)
-//
-//    }
-
 }
