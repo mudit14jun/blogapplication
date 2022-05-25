@@ -4,17 +4,16 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import com.mm.common.Resource
 import com.mm.data.room.BlogDAO
 import com.mm.data.room.BlogKey
 import com.mm.domain.model.Blog
-import com.mm.domain.repository.GetPagerBlogsRepo
+import com.mm.domain.repository.PagerBlogsRepository
 import javax.inject.Inject
 
 @OptIn(ExperimentalPagingApi::class)
 class BlogRemoteMediator @Inject constructor(
     private val initialPage: Int = 1,
-    private val getPagerBlogsRepo: GetPagerBlogsRepo,
+    private val pagerBlogsRepository: PagerBlogsRepository,
     private val blogDAO: BlogDAO
 ) : RemoteMediator<Int, Blog>() {
 
@@ -38,9 +37,10 @@ class BlogRemoteMediator @Inject constructor(
             }
 
             val response =
-                getPagerBlogsRepo.getPagerBlogs(page = page, limit = state.config.pageSize)
-            val endOfPagination = response.data?.size!! < state.config.pageSize
+                pagerBlogsRepository.getPagerBlogs(page = page, limit = state.config.pageSize)
+         //   val endOfPagination = response.data?.size!! < state.config.pageSize
 
+/*
             when (response) {
                 is Resource.Success -> {
                     val body = response.data
@@ -67,9 +67,10 @@ class BlogRemoteMediator @Inject constructor(
                 }
 
             }
+*/
 
-            if (response is Resource.Success) {
-                if (endOfPagination) {
+            if (true) {
+                if (true) {
                     MediatorResult.Success(true)
 
                 } else {

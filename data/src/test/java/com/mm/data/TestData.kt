@@ -1,4 +1,4 @@
-package com.mm.domain
+package com.mm.data
 
 //import com.mm.data.network.model.BlogDTO
 //import com.mm.data.network.model.BlogsDTO

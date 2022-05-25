@@ -4,5 +4,6 @@ data class BlogsDTO(
     val `data`: List<BlogDTO>?,
     val limit: Int?,
     val page: Int?,
-    val total: Int?
+    val total: Int?,
+    val message: String?
 )
