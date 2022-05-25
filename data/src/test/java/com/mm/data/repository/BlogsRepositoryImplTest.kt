@@ -1,8 +1,8 @@
 package com.mm.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.mm.data.getDummyBlogList
 import com.mm.data.remote.BlogRemoteDataSource
+import com.mm.domain.getDummyBlogList
 import com.mm.domain.model.Output
 import com.mm.domain.repository.BlogsRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi

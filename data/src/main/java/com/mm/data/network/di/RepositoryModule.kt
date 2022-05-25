@@ -30,9 +30,6 @@ abstract class RepositoryModule {
     @Binds
     internal abstract fun bindPagerRepository(repository: PagerBlogRepositoryImpl): PagerBlogsRepository
 
-
-
-
 }
 
 

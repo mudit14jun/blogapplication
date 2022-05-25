@@ -1,8 +1,5 @@
 package com.mm.domain
 
-//import com.mm.data.network.model.BlogDTO
-//import com.mm.data.network.model.BlogsDTO
-//import com.mm.data.network.model.OwnerDTO
 import com.mm.domain.model.Blog
 import com.mm.domain.model.Blogs
 import com.mm.domain.model.Owner
@@ -35,19 +32,6 @@ fun getDummyOwner() =
         picture = "1",
         title = "1"
     )
-
-fun getDummyBlogsDTO() = listOf(
-    Blog(
-        id = "1",
-        image = "1",
-        likes = 1,
-        owner = getDummyOwner(),
-        publishDate = "1",
-        tags = listOf("x", "y", "z"),
-        text = "String"
-    )
-)
-
 
 fun getDummyBlogList() = listOf(
     Blog(

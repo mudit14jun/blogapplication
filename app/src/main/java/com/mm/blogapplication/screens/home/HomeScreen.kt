@@ -43,9 +43,10 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
 @Composable
 fun PostItem(it: Blog, l: (String) -> Unit) {
 
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .clickable { l.invoke(it.id) }, verticalArrangement = Arrangement.Center
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { l.invoke(it.id) }, verticalArrangement = Arrangement.Center
     ) {
 
         Row(

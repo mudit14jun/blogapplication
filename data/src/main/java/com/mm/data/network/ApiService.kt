@@ -1,8 +1,6 @@
 package com.mm.data.network
 
 import com.mm.common.Constant
-//import com.mm.data.network.model.BlogDTO
-//import com.mm.data.network.model.BlogsDTO
 import com.mm.domain.model.Blog
 import com.mm.domain.model.Blogs
 import retrofit2.Response

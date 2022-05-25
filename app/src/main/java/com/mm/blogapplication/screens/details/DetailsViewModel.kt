@@ -24,30 +24,6 @@ class DetailsViewModel @Inject constructor(
         }
     }
 
-    /*fun getBlogDetails(id: String) {
-        viewModelScope.launch {
-
-            getBlogDetailsUseCase.execute(id).onEach {
-              *//*  when (it) {*//*
-                  *//*  is Resource.Loading -> {
-                        details.value = BlogDetailsStateHolder(isLoading = true)
-                    }
-                    is Resource.Success -> {*//*
-                        details.value = BlogDetailsStateHolder(data = it.data)
-
-
-                  *//*  }
-                    is Resource.Error -> {
-                        details.value = BlogDetailsStateHolder(error = it.message.toString())
-                    }*//*
-               *//* }*//*
-
-
-            }.launchIn(viewModelScope)
-        }
-
-    }*/
-
     /**
      * Method to fetch the blog details data.
      */

@@ -13,8 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.mm.blogapplication.screens.home.PostItem
 import com.google.accompanist.flowlayout.FlowRow
+import com.mm.blogapplication.screens.home.PostItem
 
 
 @Composable

@@ -1,8 +1,8 @@
 package com.mm.data.remote
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.mm.data.getDummyBlogList
 import com.mm.data.network.ApiService
+import com.mm.domain.getDummyBlogList
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import okhttp3.ResponseBody.Companion.toResponseBody

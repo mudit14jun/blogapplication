@@ -29,19 +29,6 @@ object DataModule {
             .build()
     }
 
-    /* @Provides
-       fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-           return Retrofit.Builder()
-               .baseUrl(Constant.BASE_URL)
-               .addConverterFactory(GsonConverterFactory.create())
-               .client(okHttpClient)
-               .build()
-       }
-   */
-
-
-
-
     @Provides
     fun provideHTTPLoggingInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor()
@@ -58,23 +45,11 @@ object DataModule {
             .build()
     }
 
-
-
-
     @Provides
     fun provideApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
 
- /*   @Provides
-    fun provideGetBlogsRepository(apiService: ApiService): GetBlogsRepository {
-        return GetBlogsRepositoryImpl(apiService = apiService)
-    }*/
-
-   /* @Binds
-    @Singleton
-    internal abstract fun bindCharsRepository(repository: CharsRepositoryImpl): CharsRepository
-*/
     @Provides
     fun provideDataBase(@ApplicationContext context: Context): BlogDataBase {
         return BlogDataBase.getInstance(context)
@@ -84,27 +59,5 @@ object DataModule {
     fun provideDAO(blogDataBase: BlogDataBase): BlogDAO {
         return blogDataBase.getBlogDAO()
     }
-
-
-  /*  @Provides
-    fun provideGetPagerRepo(apiService: ApiService): GetPagerBlogsRepo {
-        return GetPagerBlogsRepoImpl(apiService)
-    }*/
-
-    /*@Provides
-    fun provideGetBlogDetailsRepo(apiService: ApiService): GetBlogDetailsRepo {
-        return GetBlogDetailsRepoImpl(apiService)
-    }*/
-/*
-
-    @Provides
-    internal abstract fun  provideGetBlogDetailsRepo(repository: GetBlogsDetailsRepositoryImplementation): GetBlogDetailsRepo
-
-    @Binds
-    @Singleton
-    internal abstract fun pagerBlogRepository(repository: GetPagerBlogsRepoImplementation): GetPagerBlogsRepo
-
-*/
-
 
 }
