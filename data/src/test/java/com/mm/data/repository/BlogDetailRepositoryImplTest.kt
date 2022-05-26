@@ -2,7 +2,7 @@ package com.mm.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.mm.data.remote.BlogDetailRemoteDataSource
-import com.mm.domain.getDummyBlog
+import com.mm.data.getDummyBlog
 import com.mm.domain.model.Output
 import com.mm.domain.repository.BlogDetailsRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi

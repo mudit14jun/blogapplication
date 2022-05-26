@@ -3,7 +3,7 @@ package com.mm.data.remote
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.mm.common.Constant
 import com.mm.data.network.ApiService
-import com.mm.domain.getDummyBlogsData
+import com.mm.data.getDummyBlogsData
 import com.mm.domain.model.Output
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
