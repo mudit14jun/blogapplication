@@ -9,11 +9,13 @@ import com.mm.blogapplication.screens.base.BaseViewModel
 import com.mm.data.paging.BlogRemoteMediator
 import com.mm.data.room.BlogDAO
 import com.mm.domain.repository.PagerBlogsRepository
+import com.mm.domain.use_cases.UseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
+    private val useCase: UseCase,
     pagerBlogsRepository: PagerBlogsRepository,
     private val blogDAO: BlogDAO
 ) :
@@ -28,6 +30,6 @@ class HomeViewModel @Inject constructor(
             blogDAO = blogDAO
         )
     ) {
-        blogDAO.getAllBlogItems()
+        useCase.execute()
     }.flow.cachedIn(viewModelScope)
 }
