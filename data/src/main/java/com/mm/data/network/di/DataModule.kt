@@ -3,8 +3,6 @@ package com.mm.data.network.di
 import android.content.Context
 import com.mm.common.Constant
 import com.mm.data.network.ApiService
-/*import com.mm.data.repository.GetBlogDetailsRepoImpl
-import com.mm.data.repository.GetPagerBlogsRepoImpl*/
 import com.mm.data.room.BlogDAO
 import com.mm.data.room.BlogDataBase
 import dagger.Module
@@ -18,14 +16,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-@InstallIn(SingletonComponent :: class)
+@InstallIn(SingletonComponent::class)
 @Module
 object DataModule {
 
     @Provides
     fun provideRetrofit(): Retrofit {
-        return Retrofit.Builder().baseUrl(Constant.BASE_URL).
-        addConverterFactory(GsonConverterFactory.create())
+        return Retrofit.Builder().baseUrl(Constant.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 

@@ -15,7 +15,7 @@ import javax.inject.Singleton
 abstract class DomainModule {
     @Binds
     @Singleton
-    internal abstract fun bindCharacterUseCase(useCaseImpl: BlogsUseCaseImpl): BlogsUseCase
+    internal abstract fun bindBlogsUseCase(useCaseImpl: BlogsUseCaseImpl): BlogsUseCase
 
     @Binds
     @Singleton

@@ -36,51 +36,8 @@ class BlogRemoteMediator @Inject constructor(
                 }
             }
 
-            val response =
-                pagerBlogsRepository.getPagerBlogs(page = page, limit = state.config.pageSize)
-         //   val endOfPagination = response.data?.size!! < state.config.pageSize
-
-/*
-            when (response) {
-                is Resource.Success -> {
-                    val body = response.data
-
-                    if (loadType == LoadType.REFRESH) {
-                        blogDAO.deleteAllBlogKey()
-                        blogDAO.deleteAllItems()
-                    }
-
-                    val prev = if (page == initialPage) initialPage else page - 1
-                    val next = if (endOfPagination) null else page + 1
-
-                    val list = body?.map {
-                        BlogKey(id = it.id, prev, next)
-                    }
-                    list?.let { blogDAO.insertAllBlogKeys(list) }
-                    body?.let { blogDAO.insertAllBlogs(body) }
-
-
-                }
-                is Resource.Error -> {
-                    MediatorResult.Error(Exception())
-
-                }
-
-            }
-*/
-
-            if (true) {
-                if (true) {
-                    MediatorResult.Success(true)
-
-                } else {
-                    MediatorResult.Success(false)
-                }
-            } else {
-                MediatorResult.Success(true)
-            }
-
-
+            pagerBlogsRepository.getPagerBlogs(page = page, limit = state.config.pageSize)
+            MediatorResult.Success(true)
         } catch (E: Exception) {
 
             MediatorResult.Error(E)

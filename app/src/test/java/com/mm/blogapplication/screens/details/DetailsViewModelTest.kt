@@ -2,14 +2,10 @@ package com.mm.blogapplication.screens.details
 
 import androidx.lifecycle.SavedStateHandle
 import com.mm.blogapplication.BaseViewModelTest
-import com.mm.blogapplication.runBlockingMainTest
 import com.mm.blogapplication.getDummyBlog
-import com.mm.domain.model.Blog
-import com.mm.domain.model.Output
+import com.mm.blogapplication.runBlockingMainTest
 import com.mm.domain.use_cases.BlogDetailUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.flowOf
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,13 +19,14 @@ class DetailsViewModelTest : BaseViewModelTest() {
 
     @Mock
     private lateinit var blogDetailUseCase: BlogDetailUseCase
+
     @Mock
     private lateinit var savedStateHandle: SavedStateHandle
     private lateinit var detailsViewModel: DetailsViewModel
 
     @Before
     fun setUp() {
-        detailsViewModel = DetailsViewModel(blogDetailUseCase,savedStateHandle)
+        detailsViewModel = DetailsViewModel(blogDetailUseCase, savedStateHandle)
     }
 
     @Test

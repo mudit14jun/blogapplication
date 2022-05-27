@@ -9,14 +9,12 @@ import com.mm.blogapplication.screens.base.BaseViewModel
 import com.mm.data.paging.BlogRemoteMediator
 import com.mm.data.room.BlogDAO
 import com.mm.domain.repository.PagerBlogsRepository
-import com.mm.domain.use_cases.BlogsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val blogsUseCase: BlogsUseCase,
-    private val pagerBlogsRepository: PagerBlogsRepository,
+    pagerBlogsRepository: PagerBlogsRepository,
     private val blogDAO: BlogDAO
 ) :
     BaseViewModel() {

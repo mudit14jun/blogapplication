@@ -5,4 +5,4 @@ data class Blogs(
     val limit: Int?,
     val page: Int?,
     val total: Int?
-    )
+)
