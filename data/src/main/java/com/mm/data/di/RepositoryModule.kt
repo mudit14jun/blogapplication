@@ -1,4 +1,4 @@
-package com.mm.data.network.di
+package com.mm.data.di
 
 import com.mm.data.repository.BlogDetailRepositoryImpl
 import com.mm.data.repository.BlogsRepositoryImpl

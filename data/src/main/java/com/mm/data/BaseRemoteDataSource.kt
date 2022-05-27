@@ -18,7 +18,7 @@ abstract class BaseRemoteDataSource constructor(
      * Method to parse the Response of API Service
      * @param T the type of Response
      * @param request
-     * @return Output<T> the result of the request with type T
+     * @return OutputResource<T> the result of the request with type T
      */
     suspend fun <T> getResponse(
         request: suspend () -> Response<T>,

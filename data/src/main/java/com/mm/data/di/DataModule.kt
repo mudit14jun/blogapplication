@@ -1,4 +1,4 @@
-package com.mm.data.network.di
+package com.mm.data.di
 
 import android.content.Context
 import com.mm.common.Constant
