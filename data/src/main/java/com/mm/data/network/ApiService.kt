@@ -16,14 +16,6 @@ interface ApiService {
         @Header("app-id") appId: String = Constant.APP_ID
     ): Response<Blogs>
 
-
-    @GET("post")
-    suspend fun getBlogsPagination(
-        @Header("app-id") appId: String = Constant.APP_ID,
-        @Query("page") page: Int,
-        @Query("limit") limit: Int
-    ): Response<Blogs>
-
     @GET("post/{id}")
     suspend fun getBlogDetails(
         @Header("app-id") appId: String = Constant.APP_ID,

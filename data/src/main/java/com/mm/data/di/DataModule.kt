@@ -1,14 +1,10 @@
 package com.mm.data.di
 
-import android.content.Context
 import com.mm.common.Constant
 import com.mm.data.network.ApiService
-import com.mm.data.room.BlogDAO
-import com.mm.data.room.BlogDataBase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -47,15 +43,4 @@ object DataModule {
     fun provideApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
-
-    @Provides
-    fun provideDataBase(@ApplicationContext context: Context): BlogDataBase {
-        return BlogDataBase.getInstance(context)
-    }
-
-    @Provides
-    fun provideDAO(blogDataBase: BlogDataBase): BlogDAO {
-        return blogDataBase.getBlogDAO()
-    }
-
 }
