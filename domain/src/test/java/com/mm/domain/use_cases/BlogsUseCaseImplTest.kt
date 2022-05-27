@@ -1,7 +1,7 @@
 package com.mm.domain.use_cases
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.mm.domain.getDummyBlogList
+import com.mm.domain.getDummyBlogsData
 import com.mm.domain.model.OutputResource
 import com.mm.domain.repository.BlogsRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -34,7 +34,7 @@ class BlogsUseCaseImplTest {
     @Test
     fun `Given Blogs When UseCase getBlogs returns Success`() = runBlocking {
         //GIVEN
-        val inputFlow = flowOf(OutputResource.success(getDummyBlogList()))
+        val inputFlow = flowOf(OutputResource.success(getDummyBlogsData()))
         Mockito.`when`(blogsRepository.getBlogs()).thenReturn(inputFlow)
         //WHEN
         val output = blogsUseCase.execute()

@@ -1,7 +1,7 @@
 package com.mm.data.remote
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.mm.data.getDummyBlogList
+import com.mm.data.getDummyBlogsData
 import com.mm.data.network.ApiService
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -44,12 +44,12 @@ class BlogRemoteDataSourceTest {
     @Test
     fun `Given Blogs When getBlogs returns Success`() = runBlocking {
         //GIVEN
-        val dummyBlogList = getDummyBlogList()
+        val dummyBlogList = getDummyBlogsData()
         Mockito.`when`(apiService.getBlogs()).thenReturn(Response.success(dummyBlogList))
         //WHEN
         val fetchedBlogs = blogRemoteDataSource.getBlogs()
         //THEN
-        assert(fetchedBlogs.data?.size == dummyBlogList.size)
+        assert(fetchedBlogs.data?.data?.size == dummyBlogList.data?.size)
     }
 
     @Test

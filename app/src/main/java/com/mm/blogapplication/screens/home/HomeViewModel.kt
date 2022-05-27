@@ -1,35 +1,29 @@
 package com.mm.blogapplication.screens.home
 
+import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.ExperimentalPagingApi
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.cachedIn
-import com.mm.blogapplication.screens.base.BaseViewModel
-import com.mm.data.paging.BlogRemoteMediator
-import com.mm.data.room.BlogDAO
-import com.mm.domain.repository.PagerBlogsRepository
-import com.mm.domain.use_cases.UseCase
+import com.mm.domain.use_cases.BlogsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
-    private val useCase: UseCase,
-    pagerBlogsRepository: PagerBlogsRepository,
-    private val blogDAO: BlogDAO
-) :
-    BaseViewModel() {
+class HomeViewModel @Inject constructor(private val blogsUseCase: BlogsUseCase) : ViewModel() {
 
 
-    @OptIn(ExperimentalPagingApi::class)
-    val pager = Pager(
-        config = PagingConfig(pageSize = 10, prefetchDistance = 5),
-        remoteMediator = BlogRemoteMediator(
-            pagerBlogsRepository = pagerBlogsRepository,
-            blogDAO = blogDAO
-        )
-    ) {
-        useCase.execute()
-    }.flow.cachedIn(viewModelScope)
+    val homeState = mutableStateOf(HomeState())
+
+    init {
+        getBlogs()
+    }
+
+    fun getBlogs() {
+        viewModelScope.launch {
+            blogsUseCase.execute().collect {
+                homeState.value = HomeState(data = it.data)
+            }
+        }
+    }
+
 }

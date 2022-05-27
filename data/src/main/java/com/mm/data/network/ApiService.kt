@@ -14,7 +14,7 @@ interface ApiService {
     @GET("post")
     suspend fun getBlogs(
         @Header("app-id") appId: String = Constant.APP_ID
-    ): Response<List<Blog>>
+    ): Response<Blogs>
 
 
     @GET("post")

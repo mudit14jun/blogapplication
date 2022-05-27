@@ -20,9 +20,6 @@ abstract class DomainModule {
     @Singleton
     internal abstract fun bindBlogDetailUseCase(useCaseImpl: BlogDetailUseCaseImpl): BlogDetailUseCase
 
-    @Binds
-    @Singleton
-    internal abstract fun bindUseCase(useCase: UseCaseImpl): UseCase
 
 
 }

@@ -1,7 +1,7 @@
 package com.mm.data.repository
 
 import com.mm.data.remote.BlogRemoteDataSource
-import com.mm.domain.model.Blog
+import com.mm.domain.model.Blogs
 import com.mm.domain.model.OutputResource
 import com.mm.domain.repository.BlogsRepository
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +17,7 @@ import javax.inject.Inject
 internal class BlogsRepositoryImpl @Inject constructor(
     private val blogRemoteDataSource: BlogRemoteDataSource
 ) : BlogsRepository {
-    override suspend fun getBlogs(): Flow<OutputResource<List<Blog>>> {
+    override suspend fun getBlogs(): Flow<OutputResource<Blogs>> {
         return flow {
             emit(OutputResource.loading())
             val result = blogRemoteDataSource.getBlogs()
@@ -25,3 +25,5 @@ internal class BlogsRepositoryImpl @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 }
+
+
