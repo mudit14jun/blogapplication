@@ -3,7 +3,7 @@ package com.mm.data.repository
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.mm.data.getDummyBlogsData
 import com.mm.data.remote.PagerBlogRemoteDataSource
-import com.mm.domain.model.Output
+import com.mm.domain.model.OutputResource
 import com.mm.domain.repository.PagerBlogsRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.toList
@@ -41,8 +41,8 @@ class PagerBlogRepositoryImplTest {
     fun `Given Blogs When GetPagerBlogs returns Success`() = runBlocking {
         //GIVEN
         val givenBlogs = getDummyBlogsData()
-        val givenBlogsOutput = Output.success(givenBlogs)
-        val inputFlow = listOf(Output.loading(), Output.success(givenBlogs))
+        val givenBlogsOutput = OutputResource.success(givenBlogs)
+        val inputFlow = listOf(OutputResource.loading(), OutputResource.success(givenBlogs))
         Mockito.`when`(pagerBlogRemoteDataSource.getPagerBlogs(page, limit))
             .thenReturn(givenBlogsOutput)
 

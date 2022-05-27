@@ -3,7 +3,7 @@ package com.mm.data.repository
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.mm.data.getDummyBlog
 import com.mm.data.remote.BlogDetailRemoteDataSource
-import com.mm.domain.model.Output
+import com.mm.domain.model.OutputResource
 import com.mm.domain.repository.BlogDetailsRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.toList
@@ -37,8 +37,8 @@ class BlogDetailRepositoryImplTest {
     fun `Given Blogs When GetBlogDetails returns Success`() = runBlocking {
         //GIVEN
         val givenBlogs = getDummyBlog()
-        val givenBlogsOutput = Output.success(givenBlogs)
-        val inputFlow = listOf(Output.loading(), Output.success(givenBlogs))
+        val givenBlogsOutput = OutputResource.success(givenBlogs)
+        val inputFlow = listOf(OutputResource.loading(), OutputResource.success(givenBlogs))
         Mockito.`when`(blogDetailRemoteDataSource.getBlogDetails(getDummyBlog().id))
             .thenReturn(givenBlogsOutput)
 

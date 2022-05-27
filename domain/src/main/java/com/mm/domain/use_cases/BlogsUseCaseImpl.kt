@@ -1,7 +1,7 @@
 package com.mm.domain.use_cases
 
 import com.mm.domain.model.Blog
-import com.mm.domain.model.Output
+import com.mm.domain.model.OutputResource
 import com.mm.domain.repository.BlogsRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -13,7 +13,7 @@ import javax.inject.Inject
 internal class BlogsUseCaseImpl @Inject constructor(private val blogsRepository: BlogsRepository) :
     BlogsUseCase {
 
-    override suspend fun execute(): Flow<Output<List<Blog>>> {
+    override suspend fun execute(): Flow<OutputResource<List<Blog>>> {
         return blogsRepository.getBlogs()
     }
 }

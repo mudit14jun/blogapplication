@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.mm.common.Constant
 import com.mm.data.getDummyBlogsData
 import com.mm.data.network.ApiService
-import com.mm.domain.model.Output
+import com.mm.domain.model.OutputResource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import okhttp3.ResponseBody.Companion.toResponseBody
@@ -47,7 +47,7 @@ class PagerBlogRemoteDataSourceTest {
     @Test
     fun `Given PagerBlog When getBlogsPagination returns Success`() = runBlocking {
         //GIVEN
-        val dummyBlogList = Output.success(getDummyBlogsData())
+        val dummyBlogList = OutputResource.success(getDummyBlogsData())
         Mockito.`when`(apiService.getBlogsPagination(Constant.APP_ID, page, limit))
             .thenReturn(Response.success(dummyBlogList.data))
         //WHEN

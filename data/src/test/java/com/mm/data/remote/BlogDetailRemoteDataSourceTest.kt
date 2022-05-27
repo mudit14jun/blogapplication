@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.mm.common.Constant
 import com.mm.data.getDummyBlog
 import com.mm.data.network.ApiService
-import com.mm.domain.model.Output
+import com.mm.domain.model.OutputResource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import okhttp3.ResponseBody.Companion.toResponseBody
@@ -45,7 +45,7 @@ class BlogDetailRemoteDataSourceTest {
     @Test
     fun `Given BlogDetail When getBlogDetails returns Success`() = runBlocking {
         //GIVEN
-        val dummyBlog = Output.success(getDummyBlog())
+        val dummyBlog = OutputResource.success(getDummyBlog())
         Mockito.`when`(apiService.getBlogDetails(Constant.APP_ID, getDummyBlog().id))
             .thenReturn(Response.success(dummyBlog.data))
         //WHEN

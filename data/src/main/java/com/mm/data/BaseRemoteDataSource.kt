@@ -1,7 +1,7 @@
 package com.mm.data
 
 import com.mm.domain.model.ApiError
-import com.mm.domain.model.Output
+import com.mm.domain.model.OutputResource
 import retrofit2.Response
 import retrofit2.Retrofit
 import java.io.IOException
@@ -23,18 +23,18 @@ abstract class BaseRemoteDataSource constructor(
     suspend fun <T> getResponse(
         request: suspend () -> Response<T>,
         defaultErrorMessage: String
-    ): Output<T> {
+    ): OutputResource<T> {
         return try {
             println("I'm working in thread ${Thread.currentThread().name}")
             val result = request.invoke()
             if (result.isSuccessful) {
-                return Output.success(result.body())
+                return OutputResource.success(result.body())
             } else {
                 val errorResponse = parseError(result)
-                Output.error(errorResponse?.statusMessage ?: defaultErrorMessage, errorResponse)
+                OutputResource.error(errorResponse?.statusMessage ?: defaultErrorMessage, errorResponse)
             }
         } catch (e: Throwable) {
-            Output.error("Unknown Error", null)
+            OutputResource.error("Unknown Error", null)
         }
     }
 
