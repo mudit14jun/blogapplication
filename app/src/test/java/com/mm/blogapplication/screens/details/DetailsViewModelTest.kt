@@ -40,7 +40,6 @@ class DetailsViewModelTest : BaseViewModelTest() {
         //WHEN
         Mockito.doReturn(flowBlogs).`when`(blogDetailUseCase).execute(getDummyBlog().id)
         detailsViewModel.getBlogDetails(getDummyBlog().id)
-       var blog =   detailsViewModel.details.value.data
-        assert(blog?.id?.isNotEmpty() == true)
+        assert(getDummyBlog().likes == detailsViewModel.details.value.data?.likes)
     }
 }
