@@ -29,7 +29,6 @@ class DetailsViewModelTest : BaseViewModelTest() {
 
     @Before
     fun setUp() {
-        savedStateHandle.set("blogId","1")
         detailsViewModel = DetailsViewModel(blogDetailUseCase,savedStateHandle)
     }
 
