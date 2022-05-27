@@ -3,7 +3,7 @@ ext {
     def kotlinGradleVersion = "1.6.10"
     def hiltGradleVersion = "2.40.5"
     def appCompatVersion = "1.4.1"
-    def materialVersion = "1.5.0"
+    def materialVersion = "1.4.0"
     def flowLayoutVersion = "0.24.4-alpha"
     def constraintLayoutVersion = "2.1.3"
     def coreKtxVersion = "1.7.0"

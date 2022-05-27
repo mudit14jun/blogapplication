@@ -49,6 +49,13 @@ android {
     }
 }
 
+
+kapt {
+    correctErrorTypes true
+}
+
+
+
 dependencies {
 
 
@@ -85,6 +92,7 @@ dependencies {
     // Coroutine Testing
     testImplementation testing.unitTestingCoroutines
     testImplementation testing.unitTestingMockitoCore
+    testImplementation testing.mockitoInline
 
     testImplementation testing.unitTestingJunit
     androidTestImplementation  testing.uiTestingJunit
