@@ -36,10 +36,11 @@ class DetailsViewModelTest : BaseViewModelTest() {
     @Test
     fun `Given BlogDetail when getBlogDetail should return Success`() = runBlockingMainTest {
         //GIVEN
-        val flowBlogs = flowOf(Output.success(getDummyBlog()))
+        val blogDetail = getDummyBlog()
         //WHEN
-        Mockito.doReturn(flowBlogs).`when`(blogDetailUseCase).execute(getDummyBlog().id)
+        Mockito.doReturn(blogDetail).`when`(blogDetailUseCase).execute(blogDetail.id)
         detailsViewModel.getBlogDetails(getDummyBlog().id)
-        assert(getDummyBlog().likes == detailsViewModel.details.value.data?.likes)
+        //THEN
+        assert(getDummyBlog() == detailsViewModel.details.value.data)
     }
 }
