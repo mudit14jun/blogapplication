@@ -24,7 +24,6 @@ import retrofit2.Retrofit
 @RunWith(MockitoJUnitRunner::class)
 class BlogDetailRemoteDataSourceTest {
 
-
     @get:Rule
     val testInstantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
 

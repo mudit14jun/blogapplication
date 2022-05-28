@@ -1,7 +1,6 @@
 package com.mm.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.mm.data.getDummyBlogList
 import com.mm.data.getDummyBlogsData
 import com.mm.data.remote.BlogRemoteDataSource
 import com.mm.domain.model.OutputResource
@@ -42,15 +41,11 @@ class BlogsRepositoryImplTest {
         val givenBlogsOutput = OutputResource.success(givenBlogs)
         val inputFlow = listOf(OutputResource.loading(), OutputResource.success(givenBlogs))
         Mockito.`when`(blogRemoteDataSource.getBlogs()).thenReturn(givenBlogsOutput)
-
         //WHEN
         val outputFlow = blogsRepository.getBlogs().toList()
-
         //THEN
         assert(outputFlow.size == 2)
         assert(inputFlow[0] == outputFlow[0])
         assert(inputFlow[1] == outputFlow[1])
     }
-
-
 }

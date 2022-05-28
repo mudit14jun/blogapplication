@@ -10,7 +10,6 @@ import javax.inject.Inject
 class BlogDetailRemoteDataSource @Inject constructor(
     private val apiService: ApiService, retrofit: Retrofit
 ) : BaseRemoteDataSource(retrofit) {
-
     suspend fun getBlogDetails(id: String): OutputResource<Blog> {
         return getResponse(
             request = { apiService.getBlogDetails(id = id) },

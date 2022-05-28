@@ -22,13 +22,10 @@ import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.mm.domain.model.Blog
 
-
 @Composable
 fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltViewModel()) {
 
     val res = viewModel.homeState.value
-
-
     if (res.isLoading) {
         Box(modifier = Modifier.fillMaxSize()) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
@@ -37,7 +34,7 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
 
     if (res.error.isNotBlank()) {
         Box(modifier = Modifier.fillMaxSize()) {
-            Text(text = res.error.toString(), modifier = Modifier.align(Alignment.Center))
+            Text(text = res.error, modifier = Modifier.align(Alignment.Center))
         }
     }
 
@@ -68,9 +65,7 @@ fun PostItem(it: Blog, l: (String) -> Unit) {
         ) {
 
             CircularImage(50.0, 50.0, 25.0, it.owner.picture)
-
             Spacer(modifier = Modifier.width(6.dp))
-
             Text(text = "${it.owner.firstName} ${it.owner.lastName}")
 
         }
@@ -88,10 +83,7 @@ fun PostItem(it: Blog, l: (String) -> Unit) {
             modifier = Modifier.padding(12.dp),
             style = TextStyle(color = Color.Gray, fontSize = 20.sp)
         )
-
         Divider()
-
-
     }
 
 }
@@ -109,8 +101,5 @@ fun CircularImage(width: Double, height: Double, radius: Double, imageUrl: Strin
             painter = rememberImagePainter(data = imageUrl), contentDescription = null,
             contentScale = ContentScale.Crop
         )
-
     }
-
-
 }

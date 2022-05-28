@@ -20,7 +20,6 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class BlogDetailUseCaseImplTest {
 
-
     @get:Rule
     val testInstantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
 
@@ -44,5 +43,4 @@ class BlogDetailUseCaseImplTest {
         //THEN
         assert(inputFlow == output)
     }
-
 }

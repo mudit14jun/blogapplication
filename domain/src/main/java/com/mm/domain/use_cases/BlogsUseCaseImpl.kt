@@ -12,7 +12,6 @@ import javax.inject.Inject
  */
 internal class BlogsUseCaseImpl @Inject constructor(private val blogsRepository: BlogsRepository) :
     BlogsUseCase {
-
     override suspend fun execute(): Flow<OutputResource<Blogs>> {
         return blogsRepository.getBlogs()
     }

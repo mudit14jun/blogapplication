@@ -23,7 +23,6 @@ fun getDummyBlogsData() =
         data = listOf(getDummyBlog()),
     )
 
-
 fun getDummyOwner() =
     Owner(
         firstName = "1",
@@ -32,15 +31,3 @@ fun getDummyOwner() =
         picture = "1",
         title = "1"
     )
-
-fun getDummyBlogList() = listOf(
-    Blog(
-        id = "1",
-        image = "1",
-        likes = 1,
-        owner = getDummyOwner(),
-        publishDate = "1",
-        tags = listOf("x", "y", "z"),
-        text = "String"
-    )
-)

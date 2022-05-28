@@ -31,7 +31,10 @@ abstract class BaseRemoteDataSource constructor(
                 return OutputResource.success(result.body())
             } else {
                 val errorResponse = parseError(result)
-                OutputResource.error(errorResponse?.statusMessage ?: defaultErrorMessage, errorResponse)
+                OutputResource.error(
+                    errorResponse?.statusMessage ?: defaultErrorMessage,
+                    errorResponse
+                )
             }
         } catch (e: Throwable) {
             OutputResource.error("Unknown Error", null)

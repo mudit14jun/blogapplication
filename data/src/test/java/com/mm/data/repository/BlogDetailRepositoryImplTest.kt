@@ -41,10 +41,8 @@ class BlogDetailRepositoryImplTest {
         val inputFlow = listOf(OutputResource.loading(), OutputResource.success(givenBlogs))
         Mockito.`when`(blogDetailRemoteDataSource.getBlogDetails(getDummyBlog().id))
             .thenReturn(givenBlogsOutput)
-
         //WHEN
         val outputFlow = blogDetailsRepository.getBlogDetails(getDummyBlog().id).toList()
-
         //THEN
         assert(outputFlow.size == 2)
         assert(inputFlow[0] == outputFlow[0])

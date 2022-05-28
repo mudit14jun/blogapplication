@@ -18,11 +18,9 @@ import org.mockito.junit.MockitoJUnitRunner
 import retrofit2.Response
 import retrofit2.Retrofit
 
-
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class BlogRemoteDataSourceTest {
-
 
     @get:Rule
     val testInstantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
@@ -34,7 +32,6 @@ class BlogRemoteDataSourceTest {
     lateinit var retrofit: Retrofit
 
     private lateinit var blogRemoteDataSource: BlogRemoteDataSource
-
 
     @Before
     fun setUp() {
@@ -73,5 +70,4 @@ class BlogRemoteDataSourceTest {
         //THEN
         assert(fetchedBlogs.message == "Unknown Error")
     }
-
 }

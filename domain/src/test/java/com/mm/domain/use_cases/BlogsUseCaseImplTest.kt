@@ -41,5 +41,4 @@ class BlogsUseCaseImplTest {
         //THEN
         assert(inputFlow == output)
     }
-
 }

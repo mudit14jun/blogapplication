@@ -17,7 +17,6 @@ import com.mm.blogapplication.screens.home.HomeScreen
 import com.mm.blogapplication.ui.theme.BlogApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

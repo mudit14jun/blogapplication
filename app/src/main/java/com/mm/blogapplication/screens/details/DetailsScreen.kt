@@ -22,7 +22,6 @@ fun DetailsScreen(detailsViewModel: DetailsViewModel = hiltViewModel()) {
 
     val res = detailsViewModel.details.value
 
-
     if (res.isLoading) {
         Box(modifier = Modifier.fillMaxSize()) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
@@ -31,7 +30,7 @@ fun DetailsScreen(detailsViewModel: DetailsViewModel = hiltViewModel()) {
 
     if (res.error.isNotBlank()) {
         Box(modifier = Modifier.fillMaxSize()) {
-            Text(text = res.error.toString(), modifier = Modifier.align(Alignment.Center))
+            Text(text = res.error, modifier = Modifier.align(Alignment.Center))
         }
     }
 
@@ -44,19 +43,13 @@ fun DetailsScreen(detailsViewModel: DetailsViewModel = hiltViewModel()) {
                     TagItem(it = it)
                 }
             }
-
         }
-
-
     }
-
-
 }
 
 
 @Composable
 fun TagItem(it: String) {
-
     Card(
         modifier = Modifier
             .wrapContentWidth()
@@ -68,5 +61,4 @@ fun TagItem(it: String) {
     ) {
         Text(text = it, style = TextStyle(color = Color.Black), modifier = Modifier.padding(12.dp))
     }
-
 }
