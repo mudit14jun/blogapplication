@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.mm.blogapplication.screens.base.BaseViewModel
 import com.mm.domain.use_cases.BlogDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collectIndexed
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,14 +25,13 @@ class DetailsViewModel @Inject constructor(
             }
     }
 
-
     /**
      * Method to fetch the blog details data.
      */
-    fun getBlogDetails(id: String) {
+    fun getBlogDetails(id: String){
         viewModelScope.launch {
-            blogDetailUseCase.execute(id).collect {
-                details.value = BlogDetailsStateHolder(data = it.data)
+            blogDetailUseCase.execute(id).collectIndexed { _, value ->
+                details.value = BlogDetailsStateHolder(data = value.data)
             }
         }
     }

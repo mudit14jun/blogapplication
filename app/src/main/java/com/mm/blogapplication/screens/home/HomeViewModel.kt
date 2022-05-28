@@ -3,8 +3,10 @@ package com.mm.blogapplication.screens.home
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mm.blogapplication.screens.details.BlogDetailsStateHolder
 import com.mm.domain.use_cases.BlogsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collectIndexed
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,12 +20,14 @@ class HomeViewModel @Inject constructor(private val blogsUseCase: BlogsUseCase) 
         getBlogs()
     }
 
-    fun getBlogs() {
+    /**
+     * Method to fetch the blogs data.
+     */
+    fun getBlogs(){
         viewModelScope.launch {
-            blogsUseCase.execute().collect {
-                homeState.value = HomeState(data = it.data)
+            blogsUseCase.execute().collectIndexed { _, value ->
+                homeState.value = HomeState(data = value.data)
             }
         }
     }
-
 }
